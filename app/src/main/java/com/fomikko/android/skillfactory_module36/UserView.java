@@ -16,7 +16,7 @@ class UserActivity extends AppCompatActivity implements UserView {
 
     private static final String TAG = "UserActivity";
 
-    private UserPresenter mPresenter;
+    private UserSomething mPresenter;
 
     private Button mButton;
 
@@ -28,7 +28,7 @@ class UserActivity extends AppCompatActivity implements UserView {
         setContentView(R.layout.activity_main);
 
         //Создаём Presenter и в аргументе передаём ему this - эта Activity расширяет интерфейс MainContract.View
-        mPresenter = new UserPresenterImpl(this);
+        mPresenter = new UserSomethingImpl(this);
 
         tvUserInfo = (TextView) findViewById(R.id.text_view);
         mButton = (Button) findViewById(R.id.button);

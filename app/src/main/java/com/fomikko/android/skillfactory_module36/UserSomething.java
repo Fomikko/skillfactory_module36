@@ -2,12 +2,12 @@ package com.fomikko.android.skillfactory_module36;
 
 import android.util.Log;
 
-public interface UserPresenter {
+public interface UserSomething {
     void onButtonWasClicked();
     void onDestroy();
 }
 
-class UserPresenterImpl implements UserPresenter {
+class UserSomethingImpl implements UserSomething {
     private static final String TAG = "UserPresenter";
 
     //Компоненты MVP приложения
@@ -17,7 +17,7 @@ class UserPresenterImpl implements UserPresenter {
     //Данные о пользователе
     private String userInfo;
 
-    public UserPresenterImpl(UserView mView) {
+    public UserSomethingImpl(UserView mView) {
         this.mView = mView;
         this.mRepository = new UserRepositoryImpl();
         Log.d(TAG, "Constructor");
