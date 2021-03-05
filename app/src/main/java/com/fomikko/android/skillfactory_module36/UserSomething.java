@@ -8,7 +8,7 @@ public interface UserSomething {
 }
 
 class UserSomethingImpl implements UserSomething {
-    private static final String TAG = "UserPresenter";
+    private static final String TAG = "UserSomething";
 
     //Компоненты MVP приложения
     private UserView mView;

@@ -16,7 +16,7 @@ class UserActivity extends AppCompatActivity implements UserView {
 
     private static final String TAG = "UserActivity";
 
-    private UserSomething mPresenter;
+    private UserSomething mUserSomething;
 
     private Button mButton;
 
@@ -27,8 +27,8 @@ class UserActivity extends AppCompatActivity implements UserView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Создаём Presenter и в аргументе передаём ему this - эта Activity расширяет интерфейс MainContract.View
-        mPresenter = new UserSomethingImpl(this);
+        //Создаём Something и в аргументе передаём ему this - эта Activity расширяет интерфейс MainContract.View
+        mUserSomething = new UserSomethingImpl(this);
 
         tvUserInfo = (TextView) findViewById(R.id.text_view);
         mButton = (Button) findViewById(R.id.button);
@@ -36,7 +36,7 @@ class UserActivity extends AppCompatActivity implements UserView {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.onButtonWasClicked();
+                mUserSomething.onButtonWasClicked();
             }
         });
         Log.d(TAG, "onCreate()");
@@ -48,11 +48,11 @@ class UserActivity extends AppCompatActivity implements UserView {
         Log.d(TAG, "showUserInfo()");
     }
 
-    //Вызываем у Presenter метод onDestroy, чтобы избежать утечек контекста и прочих неприятностей.
+    //Вызываем у Something метод onDestroy, чтобы избежать утечек контекста и прочих неприятностей.
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mPresenter.onDestroy();
+        mUserSomething.onDestroy();
         Log.d(TAG, "onDestroy()");
     }
 }
